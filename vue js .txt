@@ -1,0 +1,58 @@
+-- how to instal vue js 
+ -- first install Nodejs then go to a command shell and type this command: "npm install -g @vue/cli"
+ -- command for create the app command: "vue create "project_name""
+ -- run the next command on cmd command "cd "project_name"" 
+ -- run the server porject command:"npm run serve "
+ 
+ clase:
+ xomponente.vue
+ <template>
+  <div>
+    <h1>
+      {{ nombre }}
+    </h1>
+    <!--recorrer todas las materias (creadas en el componente) y se van a recorrer una a una y se guardan en la variable materia simepre tiene que llevar un key unico -->
+    <ul v-for="materia in materias" :key="materia">
+      <li>
+        {{ materia }}
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script> // aqui se crean los componentes 
+export default {
+  nombre: "componente",
+  data() {
+    return {
+      nombre: "Nicolas rojas molina ",
+      materias: ["ing software", "inteligencia artificial", "frances I"],
+    };
+  },
+  methods: {},
+};
+</script>
+
+<style> aqui se exportan los estilos 
+@import "../assets/styles/styles.css";
+</style>
+
+clase
+app.vue
+<template>
+  <componenteVue />
+</template>
+
+<script> //esta es la pagina principal donde se exporta lo que se quiere ver en la principal 
+import componenteVue from "./components/componente.vue";
+
+export default {
+  name: "App",
+  components: {
+    componenteVue,
+  },
+};
+</script>
+
+<style>
+</style>
